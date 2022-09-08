@@ -1,6 +1,7 @@
 let canvas = document.getElementById("snake");
 let context = canvas.getContext("2d")
 let box = 32;
+let jogo = 0;
 let snake = [];
 snake[0] = {x: 8 * box, y: 8 * box}
 
@@ -11,7 +12,7 @@ let food = {
 }
 
 function criarBG(){
-    context.fillStyle = "black";
+    context.fillStyle = "rgb(50, 0,0)";
     context.fillRect (0, 0, 16*box, 16*box)
 }
 
@@ -22,7 +23,7 @@ function criarSnake(){
     }    
 }
 function drawfood(){
-    context.fillStyle="red";
+    context.fillStyle="green";
     context.fillRect(food.x, food.y, box, box);
 }
 
@@ -34,8 +35,12 @@ function update(event){
     if(event.keyCode == 39 && direction != "left") direction = "right";
     if(event.keyCode == 40 && direction != "up") direction = "down";
 }
+function jogar(){
+    jogo = setInterval(IniciarJogo,150);
+}
 
 function IniciarJogo(){
+    document.getElementById("Iniciar").innerHTML = "<style> #Iniciar{display:none;} #snake{display:inline;} </style>";
     if (snake[0].x > 15 * box && direction=="right")snake[0].x = 0;
     if (snake[0].x < 0 && direction=="left")snake[0].x = 16 * box;
     if (snake[0].y > 15 * box && direction=="down")snake[0].y = 0;
@@ -44,7 +49,10 @@ function IniciarJogo(){
     for (i = 1; i < snake.length; i++){
         if (snake[0].x == snake[i].x && snake[0].y == snake[i].y){
             clearInterval(jogo);
-            alert("Você perdeu :(");
+            jogo = 0;
+            document.getElementById("perdeu").innerHTML="Você Perdeu! <style>#perdeu {display:inline;}</style>";
+            document.getElementById("reiniciar").innerHTML="Reiniciar! <style>#reiniciar{display:inline;}</style>";
+            document.getElementById("snake").innerHTML="<style> #snake{display:none;} </style>"
         }
     }
 
@@ -77,4 +85,3 @@ function IniciarJogo(){
     
 }
 
-let jogo = setInterval(IniciarJogo,150);

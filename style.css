@@ -1,9 +1,33 @@
 body{
     height: 95vh;
-    width: 95;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background: linear-gradient(rgb(0,0,0)50%,rgb(255, 0, 0)) ;
+    height: 100vh;
+    text-decoration: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+h1{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 40px;
+    color:rgb(255, 0, 0);
 
+}
+button{
+    width: 20%;
+    margin: 50px;
+    padding: 50px 0px;
+    color: red;
+    font-size: large;
+    font-weight: bolder;
+    border-radius: 20px;
+    border-width:1px;
+    background-color: black;
+
+}
+
+#perdeu, #reiniciar, #snake {
+    display: none;
 }

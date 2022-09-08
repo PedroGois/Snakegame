@@ -9,7 +9,11 @@
     <title>Snake Game</title>
 </head>
 <body>
-    <h1>Snake Game</h1>
-    <canvas id="snake" width="512" height="512"></canvas>
+        <h1>Snake Game</h1>
+        <button type="button" id="Iniciar" onclick="jogar()" style="border: solid 1px red;">Iniciar Jogo</button>
+        <h1 id="perdeu"></h1>
+        <button type="button" id="reiniciar" onclick="jogarnovamente()" style="border: solid 1px red;"></button>
+        <canvas id="snake" width="512" height="512">
+        </canvas>
 </body>
 </html>
